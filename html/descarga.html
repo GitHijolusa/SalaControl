@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Descarga - Patatas Hijolusa</title>
+    <link rel="stylesheet" href="/css/descarga.css">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/descarga.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-date">
+            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+        </div>
+        <div class="date-time">
+            <div id="current-date"></div>
+            <div id="current-time"></div>
+            <div id="last-update">Última actualizacion: 00:00:00</div>
+        </div>
+        <div class="tracking-button-container">
+            <div class="dropdown">
+                <a href="carga.html">Zona de carga</a>
+                <a href="lavado.html">Zona de Lavado</a>
+                <a href="envasado.html">Zona de Envasado</a>
+                <a href="envasado2.html">Zona de Envasado 2</a>
+                <a href="cepillado.html">Zona de Cepillado</a>
+            </div>
+
+            <button class="tracking-button">TRACKING ZONA DESCARGA</button>
+        </div>
+    </div>
+
+    <div class="zona-carga-container">
+        <div class="carga-stations">
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>DESCARGA 5</h3>
+                    <div class="status-circle" id="status-linea1"></div>
+                </div>
+                <div>LOTE: <input type="text" id="lote1" disabled> </div>
+                <div>VARIEDAD: <input type="text" id="variedad1" disabled></div>
+                <div>AGRICULTOR: <input type="text" id="agricultor1" disabled> </div>
+                <div>PROVEEDOR: <input type="text" id="proveedor1" disabled></div>
+                <img src="/images/carga_station_5.PNG" alt="Estación de Carga 1">
+                <textarea type="text" id="op1" rows="5" disabled></textarea><br><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula1" disabled></div>
+            </div>
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>DESCARGA 6</h3>
+                    <div class="status-circle" id="status-linea2"></div>
+                </div>
+                <div>LOTE: <input type="text" id="lote2" disabled> </div>
+                <div>VARIEDAD: <input type="text" id="variedad2" disabled></div>
+                <div>AGRICULTOR: <input type="text" id="agricultor2" disabled> </div>
+                <div>PROVEEDOR: <input type="text" id="proveedor2" disabled></div>             
+                <img src="/images/carga_station_6.PNG" alt="Estación de Carga 2"><br><br>
+                <textarea type="text" id="op2" rows="5" disabled></textarea><br><br>            
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula2" disabled></div>
+            </div>
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h4>DESCARGA 7</h4>
+                    <div class="status-circle" id="status-linea3"></div>
+                </div>
+                <div>LOTE: <input type="text" id="lote3" disabled> </div>
+                <div>VARIEDAD: <input type="text" id="variedad3" disabled></div>
+                <div>AGRICULTOR: <input type="text" id="agricultor3" disabled> </div>
+                <div>PROVEEDOR: <input type="text" id="proveedor3" disabled></div>
+                <img src="/images/carga_station_7.PNG" alt="Estación de Carga 3">
+                <textarea type="text" id="op3" rows="5" disabled></textarea><br><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula3" disabled></div>
+            </div>
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>DESCARGA 8</h3>
+                    <div class="status-circle" id="status-linea4"></div>
+                </div>
+                <div>LOTE: <input type="text" id="lote4" disabled> </div>
+                <div>VARIEDAD: <input type="text" id="variedad4" disabled></div>
+                <div>AGRICULTOR: <input type="text" id="agricultor4" disabled> </div>
+                <div>PROVEEDOR: <input type="text" id="proveedor4" disabled></div>
+                <img src="/images/carga_station_8.PNG" alt="Estación de Carga 4">
+                <textarea type="text" id="op4" rows="5" disabled></textarea><br><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula4" disabled></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="other-elements">
+        <div class="input-container">
+            <img src="/images/palet.png" alt="Palet" style="max-height: 60px;">
+            <div>OTROS TRABAJOS</div>
+        </div>  
+        <div class="input-container">
+            <img src="/images/persona.png" alt="Andrés Manuel Gómez">
+            <textarea class="large-input" id="descarga" disabled></textarea>
+        </div>  
+    </div>
+</body>
+</html>
+
+<style>
+    .large-input {
+        width: 100%;
+        height: 100px; /* Ajusta la altura según tus necesidades */
+    }
+    .station-input {
+        width: 150px; /* Ajusta el ancho según tus necesidades */
+        margin-left: 5px; /* Ajusta el margen izquierdo según tus necesidades */
+        box-sizing: border-box;
+    }
+</style>
