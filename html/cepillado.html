@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Cepillado</title>
+    <link rel="stylesheet" href="/css/cepillado.css">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/cepillado.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+        </div>
+        <div class="date-time">
+            <div id="current-date"></div>
+            <div id="current-time"></div>
+            <div id="last-update">Última actualizacion: 00:00:00</div>
+        </div>
+        <div class="tracking-button-container">            
+            <div class="dropdown">
+                <a href="descarga.html">Zona de Descarga</a>
+                <a href="lavado.html">Zona de Lavado</a>
+                <a href="carga.html">Zona de Carga</a>
+                <a href="envasado.html">Zona de Envasado</a>
+                <a href="envasado2.html">Zona de Envasado 2</a>
+            </div>
+            <button class="tracking-button">TRACKING ZONA CEPILLADO</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="linea" id="linea3">
+            <div class="linea-info">
+                <div style="display: flex; align-items: center;">
+                    <h4>LINEA 3</h4>
+                    <div class="status-circle" id="status-linea3"></div>
+                </div>
+            </div>
+
+            <div class="calibrador-wrapper"> <div class="calibrador">
+                    <img src="/images/cepilladora.png">
+                </div>
+
+                <div class="linea-lavado" id="linea-lavado-data-3">
+                    <div>NUMOF: <input type="text" class="station-input" id="numof3" disabled></div>
+                    <div>BUENAS: <input type="text" class="station-input" id="buenas3" disabled></div>
+                    <div>MALAS: <input type="text" class="station-input" id="malas3" disabled></div>
+                    <div>ESTADO: <input type="text" id="estado1" disabled></div>
+                </div>
+                
+                <div class="produccion-info" id="produccion-info-data-3">
+                    <div><input type="checkbox" id="cep3"></div>
+                </div>
+                
+                <div class="produccion-buenas-malas" id="produccion-extras-3">
+                    <img src="/images/persona.png" alt="Carretillero Linea 3" height="70px">
+                    <textarea class="name-input large-input" id="carr3" disabled></textarea>
+                </div>
+                <div>
+                    <input type="checkbox" id="lavado3" style="position: absolute; top: 57%; left: 96%">
+                </div>
+            </div>
+        </div>
+
+        <div class="linea" id="linea2">
+            <div class="linea-info">
+                <div style="display: flex; align-items: center;">
+                    <h4>LINEA 2</h4>
+                    <div class="status-circle" id="status-linea2"></div>
+                </div>
+            </div>
+
+            <div class="calibrador-wrapper">
+                <div class="calibrador">
+                    <img src="/images/cepilladora.png">
+                </div>
+
+                <div class="linea-lavado" id="linea-lavado-data-2">
+                    <div>NUMOF: <input type="text" class="station-input" id="numof2" disabled></div>
+                    <div>BUENAS: <input type="text" class="station-input" id="buenas2" disabled></div>
+                    <div>MALAS: <input type="text" class="station-input" id="malas2" disabled></div>
+                    <div>ESTADO: <input type="text" id="estado2" disabled></div>
+                </div>
+                
+                <div class="produccion-info" id="produccion-info-data-2">
+                    <div><input type="checkbox" id="cep2"></div>
+                </div>
+
+                <div class="produccion-buenas-malas" id="produccion-extras-2">
+                    <img src="/images/persona.png" alt="Carretillero Linea 3" height="70px">
+                    <textarea class="name-input large-input" id="carr2" disabled></textarea>
+                </div>
+
+                <input type="checkbox" id="lavado2" style="position: absolute; top: 57%; left: 96%">
+            </div>
+        </div>
+
+        <div class="linea" id="linea1">
+            <div class="linea-info">
+                <div style="display: flex; align-items: center;">
+                    <h4>LINEA 1</h4>
+                    <div class="status-circle" id="status-linea1"></div>
+                </div>
+            </div>
+
+            <div class="calibrador-wrapper">
+                <div class="calibrador">
+                    <img src="/images/cepilladora.png" alt="Calibrador 1">
+                </div>
+
+                <div class="linea-lavado" id="linea-lavado-data-1">
+                    <div>NUMOF: <input type="text" class="station-input" id="numof1" disabled></div>
+                    <div>BUENAS: <input type="text" class="station-input" id="buenas1" disabled></div>
+                    <div>MALAS: <input type="text" class="station-input" id="malas1" disabled></div>
+                    <div>ESTADO: <input type="text" id="estado3" disabled></div>
+                </div>
+           
+                <div class="produccion-info" id="produccion-info-data-1">
+                    <div><input type="checkbox" id="cep1"></div>
+                </div>
+
+                <div class="produccion-buenas-malas" id="produccion-extras-1">
+                    <img src="/images/persona.png" alt="Carretillero Linea 1" height="70px">
+                    <textarea class="name-input large-input" id="carr1" disabled></textarea>
+                </div>
+                <div>
+                    <input type="checkbox" id="lavado1" style="position: absolute; top: 57%; left: 96%">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
