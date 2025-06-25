@@ -1,0 +1,1 @@
+Aplicación web que muestra varias pantallas de las maquinas mostrando los datos que se han extraido de la base de datos de Mapex. Estas pantallas se actualizan cada minuto comprobando si hay nuevoos registros en la base de datos.
