@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Carga - Patatas Hijolusa</title>
+    <link rel="stylesheet" href="/css/carga.css">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/carga.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-date">
+            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+        </div>
+        <div class="date-time">
+            <div id="current-date"></div>
+            <div id="current-time"></div>
+            <div id="last-update">Última actualizacion: 00:00:00</div>
+        </div>
+        <div class="tracking-button-container">
+            <div class="dropdown">
+                <a href="descarga.html">Zona de Descarga</a>
+                <a href="lavado.html">Zona de Lavado</a>
+                <a href="cepillado.html">Zona de Cepillado</a>
+                <a href="envasado.html">Zona de Envasado</a>
+                <a href="envasado2.html">Zona de Envasado 2</a>
+            </div>
+
+            <button class="tracking-button">TRACKING ZONA CARGA</button>
+        </div>
+    </div>
+
+    <div class="zona-carga-container">
+        <div class="carga-stations">
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>CARGA 1</h3>
+                    <div class="status-circle" id="status-linea1"></div>
+                </div>
+                <div>PRODUCTO: <input type="text" id="producto1" disabled> </div>
+                <div>CLIENTE: <input type="text" id="cliente1" disabled></div>
+                <div>PALETIZACIÓN: <input type="text" id="pal1" disabled></div>
+                <div>HUECOS: <input type="text" id="huecos1" disabled></div>
+                <div>REGISTRO: <input type="text" id="registro1" disabled></div><br>
+                <img src="/images/carga_station_1.png" alt="Estación de Carga 1">
+                <textarea type="text" id="op1" rows="5" disabled></textarea><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula1" disabled></div>
+            </div>
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>CARGA 2</h3>
+                    <div class="status-circle" id="status-linea2"></div>
+                </div>                
+                <div>PRODUCTO: <input type="text" id="producto2" disabled></div>
+                <div>CLIENTE: <input type="text" id="cliente2" disabled></div>
+                <div>PALETIZACIÓN: <input type="text" id="pal2" disabled></div>
+                <div>HUECOS: <input type="text" id="huecos2" disabled></div>
+                <div>REGISTRO: <input type="text" id="registro2" disabled></div><br>
+                <img src="/images/carga_station_2.png" alt="Estación de Carga 2">
+                <textarea type="text" id="op2" rows="5" disabled></textarea><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula2" disabled></div>
+            </div>
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>CARGA 3</h3>
+                    <div class="status-circle" id="status-linea3"></div>
+                </div>                 
+                <div>PRODUCTO: <input type="text" id="producto3" disabled></div>
+                <div>CLIENTE: <input type="text" id="cliente3" disabled></div>
+                <div>PALETIZACIÓN: <input type="text" id="pal3" disabled></div>
+                <div>HUECOS: <input type="text" id="huecos3" disabled></div>
+                <div>REGISTRO: <input type="text" id="registro3" disabled></div><br>
+                <img src="/images/carga_station_3.png" alt="Estación de Carga 3">
+                <textarea type="text" id="op3" rows="5" disabled></textarea><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula3" disabled></div>
+            </div>
+            <div class="station">
+                <div style="display: flex; align-items: center;">
+                    <h3>CARGA 4</h3>
+                    <div class="status-circle" id="status-linea4"></div>
+                </div>                
+                <div>PRODUCTO: <input type="text" id="producto4" disabled></div>
+                <div>CLIENTE: <input type="text" id="cliente4" disabled></div>
+                <div>PALETIZACIÓN: <input type="text" id="pal4" disabled></div>
+                <div>HUECOS: <input type="text" id="huecos4" disabled></div>
+                <div>REGISTRO: <input type="text" id="registro4" disabled></div><br>
+                <img src="/images/carga_station_4.png" alt="Estación de Carga 4">
+                <textarea type="text" id="op4" rows="5" disabled></textarea><br>
+                <div>Matrícula: <input type="text" class="station-input" value="" id="matricula4" disabled></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="other-elements">
+        <div class="input-container">
+            <img src="/images/furgoneta_hijolusa.png" alt="Furgoneta Hijolusa" style="max-height: 80px;">
+        </div>
+        <div class="input-container">
+             <img src="/images/palet.png" alt="Palet" style="max-height: 50px;">
+            <img src="/images/persona.png" alt="Andrés Manuel Gómez">
+            <div>OTROS TRABAJOS</div>
+            <textarea class="name-input large-input" id="carga" rows="8" cols="20" disabled></textarea>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .large-input {
+        width: 100%;
+        height: 100px; /* Ajusta la altura según tus necesidades */
+    }
+</style>
