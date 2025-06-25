@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Envasado</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/envasado2.css">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/envasado2.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-date">
+            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+        </div>
+        <div class="date-time">
+            <div id="current-date"></div>
+            <div id="current-time"></div>
+            <div id="last-update">Última actualizacion: 00:00:00</div>
+        </div>
+        <div class="tracking-button-container">
+            <div class="dropdown">
+                <a href="descarga.html">Zona de Descarga</a>
+                <a href="lavado.html">Zona de Lavado</a>
+                <a href="cepillado.html">Zona de Cepillado</a>
+                <a href="carga.html">Zona de Carga</a>
+                <a href="envasado.html">Zona de Envasado</a>
+            </div>
+
+            <button class="tracking-button">TRACKING ZONA ENVASADO</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="machine-section">
+            <div class="machine-header">
+                <h3 class="machine-name">LÍNEA 7</h3>
+                <div class="status-circle" id="status-linea7"></div>
+            </div>
+            <div class="carretillero">
+                <img src="/images/persona.png" alt="envLinea1" style="max-height: 60px;">
+                <textarea class="name-input large-input" rows="6" cols="30" id="pesadora7" disabled></textarea>
+            </div>
+            <div class="tolvaOrigen">
+                TOLVA ORIGEN: <input type="text" id="tolvaOrigen7" disabled><br />
+                PRODUCTO: <input type="text" id="producto7" disabled><br />
+                NUMOF: <input type="text" id="numof7" disabled><br />
+            </div>
+            <div class="machine-body">
+                <div style="position: relative; display: flex;">
+                    <img src="/images/envasado_7.png" alt="Imagen de la máquina">
+                    <div class="param_rend" style="position: absolute; top: 230px; left: 25px; bottom: 0; background-color: transparent;">
+                        <div><label for="disp7" id="label_disp7">DISP:</label><input type="text" id="disp7" disabled>
+                        </div>
+                        <div><label for="ren7" id="label_ren7">REN:</label><input type="text" id="ren7" disabled></div>
+                        <div><label for="cal7" id="label_cal7">CAL:</label><input type="text" id="cal7" disabled></div>
+                        <div><label for="oee7" id="label_oee7">OEE:</label><input type="text" id="oee7" disabled></div>
+                        <br>
+                    </div>
+                    <div class="param"
+                        style="position: absolute; top: 240px; left: 230px; bottom: 0; background-color: transparent;">
+                        <div>LOTE: <br><input type="text" id="lote7" disabled></div><br>
+                        <div>VARIEDAD: <br><input type="text" id="variedad7" disabled></div>
+                        <div>BUENAS: <input type="text" id="buenas7" disabled></div>
+                        <div>MALAS: <input type="text" id="malas7" disabled></div><br>
+                        <div><input type="text" id="estado7" disabled></div>
+                        <br>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="estado7_1"
+                            style="height: 60px; width: 62px; position: absolute;z-index: 2; bottom: 598px; left: 146px;">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="estado7_1_1"
+                            style="height: 72px; width: 60px; position: absolute;z-index: 2; top: 139px; left: 23px;">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="estado7_1_2"
+                            style="height: 72px; width: 60px; position:absolute; z-index: 2; top: 141px; left: 306px;">
+                    </div>
+                </div>
+                <div class="data-overview">
+                    <div style="position: relative; bottom: 100px; left: 70px; display: flex;">
+                        <img src="/images/robot.png" alt="envLinea3" style="max-height: 80px; max-width: 80px;">
+                        <div>PALETS: <input type="text" id="env3" disabled></input></div>
+                    </div>
+                    <div style="position: relative; right: 125px; display: flex;">
+                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <textarea class="name-input large-input" id="env3" rows="2" cols="22" disabled></textarea>
+                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <textarea class="name-input large-input" id="env3_1" rows="2" cols="22" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="machine-section">
+            <div class="machine-header">
+                <h3 class="machine-name">LÍNEA 6</h3>
+                <div class="status-circle" id="status-linea6"></div>
+            </div>
+            <div class="carretillero">
+                <img src="/images/persona.png" alt="envLinea2" style="max-height: 60px;">
+                <textarea class="name-input large-input" rows="6" cols="30" id="pesadora6" disabled></textarea>
+            </div>
+            <div class="tolvaOrigen6">
+                TOLVA ORIGEN: <input type="text" id="tolvaOrigen6" disabled><br />
+                PRODUCTO: <input type="text" id="producto6" disabled><br />
+                NUMOF: <input type="text" id="numof6" disabled>
+            </div>
+            <div class="machine-body">
+                <div style="position: relative; display: inline-block;">
+                    <img src="/images/envasado_6.png" alt="Imagen de la máquina">
+                    <div class="param_rend"
+                        style="position: absolute; top: 242px; left: 10px; bottom: 0; background-color: transparent; padding: 5px;">
+                        <div><label for="disp6" id="label_disp6">DISP:</label><input type="text" id="disp6" disabled>
+                        </div>
+                        <div><label for="ren6" id="label_ren6">REN:</label><input type="text" id="ren6" disabled></div>
+                        <div><label for="cal6" id="label_cal6">CAL:</label><input type="text" id="cal6" disabled></div>
+                        <div><label for="oee6" id="label_oee6">OEE:</label><input type="text" id="oee6" disabled></div>
+                    </div>
+                    <div class="param"
+                        style="position: absolute; top: 220px; left: 145px; bottom: 0; background-color: transparent; padding: 5px;">
+                        <div>LOTE: <br><input type="text" id="lote6" disabled></div>
+                        <div>VARIEDAD: <br><input type="text" id="variedad6" disabled></div>
+                        <div>BUENAS: <input type="text" id="buenas6" disabled></div>
+                        <div>MALAS: <input type="text" id="malas6" disabled></div><br>
+                        <div><input type="text" id="estado6" disabled></div>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="estado6_1"
+                            style="height: 60px; width: 50px; position: absolute;z-index: 2; bottom: 605px; left: 163px;">
+                    </div>
+                </div>
+                <div class="data-overview">
+                    <img src="/images/robot.png" alt="envLinea3" style="max-height: 80px; max-width: 80px;">
+                    <div>PALETS: <input type="text" id="env3" disabled></input></div>
+                    <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                    <textarea class="name-input large-input" id="env3" rows="2" cols="70" disabled></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="machine-section">
+            <div class="machine-header">
+                <h3 class="machine-name">LÍNEA 5</h3>
+                <div class="status-circle" id="status-linea5"></div>
+            </div>
+            <div class="carretillero">
+                <img src="/images/persona.png" alt="envLinea2" style="max-height: 60px;">
+                <textarea class="name-input large-input" rows="6" cols="30" id="pesadora5" disabled></textarea>
+            </div>
+            <div class="tolvaOrigen5">
+                TOLVA ORIGEN: <input type="text" id="tolvaOrigen5" disabled><br />
+                PRODUCTO: <input type="text" id="producto5" disabled><br />
+                NUMOF: <input type="text" id="numof5" disabled>
+            </div>
+            <div class="machine-body">
+                <div style="position: relative; display: inline-block;">
+                    <img src="/images/envasado_5.png" alt="Imagen de la máquina">
+                    <div class="param_rend"
+                        style="position: absolute; top: 230px; left: 20px; bottom: 0; background-color: transparent; padding: 10px;">
+                        <div><label for="disp5" id="label_disp5">DISP:</label><input type="text" id="disp5" disabled>
+                        </div>
+                        <div><label for="ren5" id="label_ren5">REN:</label><input type="text" id="ren5" disabled></div>
+                        <div><label for="cal5" id="label_cal5">CAL:</label><input type="text" id="cal5" disabled></div>
+                        <div><label for="oee5" id="label_oee5">OEE:</label><input type="text" id="oee5" disabled></div>
+                    </div>
+                    <div class="param"
+                        style="position: absolute; top: 205px; left: 160px; bottom: 0; background-color: transparent; padding: 10px;">
+                        <div>LOTE: <br><input type="text" id="lote5" disabled></div>
+                        <div>VARIEDAD: <br><input type="text" id="variedad5" disabled></div>
+                        <div>BUENAS: <input type="text" id="buenas5" disabled></div>
+                        <div>MALAS: <input type="text" id="malas5" disabled></div><br>
+                        <div><input type="text" id="estado5" disabled></div>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="estado5_1"
+                            style="height: 60px; width: 50px; position: absolute;z-index: 2; bottom: 602px; left: 156px;">
+                    </div>
+                </div>
+                <div class="data-overview">
+                    <img src="/images/robot.png" alt="envLinea3" style="max-height: 80px; max-width: 80px;">
+                    <div>PALETS: <input type="text" id="env3" disabled></input></div>
+                    <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                    <textarea class="name-input large-input" id="env3" rows="2" cols="70" disabled></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="machine-section">
+            <div class="machine-header">
+                <h3 class="machine-name">LÍNEA 4</h3>
+                <div class="status-circle" id="status-linea4"></div>
+            </div>
+            <div class="carretillero">
+                <img src="/images/persona.png" alt="envLinea3" style="max-height: 60px;">
+                <textarea class="name-input large-input" rows="6" cols="30" id="pesadora4" disabled></textarea>
+            </div>
+            <div class="tolvaOrigen4">
+                TOLVA ORIGEN: <input type="text" id="tolvaOrigen4" disabled><br />
+                PRODUCTO: <input type="text" id="producto4" disabled><br />
+                NUMOF: <input type="text" id="numof4" disabled>
+            </div>
+            <div class="machine-body">
+                <div style="position: relative; display: inline-block;">
+                    <img src="/images/envasado_4.png" alt="Imagen de la máquina">
+                    <div class="param_rend"
+                        style="position: absolute; top: 240px; left: 2px; bottom: 0; background-color: transparent; padding: 10px;">
+                        <div><label for="disp4" id="label_disp4">DISP:</label><input type="text" id="disp4" disabled>
+                        </div>
+                        <div><label for="ren4" id="label_ren4">REN:</label><input type="text" id="ren4" disabled></div>
+                        <div><label for="cal4" id="label_cal4">CAL:</label><input type="text" id="cal4" disabled></div>
+                        <div><label for="oee4" id="label_oee4">OEE:</label><input type="text" id="oee4" disabled></div>
+                    </div>
+                    <div class="param"
+                        style="position: absolute; top:240px; left: 160px; bottom: 0; background-color: transparent; padding: 10px;">
+                        <div>LOTE: <br><input type="text" id="lote4" disabled></div>
+                        <div>VARIEDAD: <br><input type="text" id="variedad4" disabled></div>
+                        <div>BUENAS: <input type="text" id="buenas4" disabled></div>
+                        <div>MALAS: <input type="text" id="malas4" disabled></div><br>
+                        <div><input type="text" id="estado4" disabled></div>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="estado4_1"
+                            style="height: 60px; width: 50px; position: absolute;z-index: 2; bottom: 600px; left: 159px;">
+                    </div>
+                </div>
+                <div class="data-overview">
+                    <img src="/images/robot.png" alt="envLinea3" style="max-height: 80px; max-width: 80px;">
+                    <div>PALETS: <input type="text" id="env3" disabled></input></div>
+                    <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                    <textarea class="name-input large-input" id="env3" rows="2" cols="70" disabled></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
