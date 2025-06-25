@@ -13,6 +13,9 @@ function updateAllData() {
     obtenerInfoLavado(76);
     obtenerInfoLavado(75);
     obtenerInfoLavado(74);
+    cambiarImagenMaquina(76, 'calibrador3');
+    cambiarImagenMaquina(75, 'calibrador2');
+    cambiarImagenMaquina(74, 'calibrador1');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -185,3 +188,29 @@ async function obtenerInfoLavado(id_maquina) {
         console.error(`Error al cargar la información de lavado de la máquina ${if_maquina}:`, error);
     }
 }
+
+async function cambiarImagenMaquina(id_maquina, id_imagen) {
+    try {
+        const response = await fetch(`${backendUrl}/api/maquina_activa/${id_maquina}`);
+        if (response.ok) {
+            const data = await response.json();
+            const imagenElement = document.getElementById(id_imagen);
+            if (imagenElement) {
+                if (data.descparo === '0' || data.descparo === '') {
+                    imagenElement.src = "/images/calibrador.png"; // Imagen para estado activo
+                } else {
+                    imagenElement.src = "/images/calibrador_inactiva.png"; // Imagen para estado de paro
+                }
+            }
+        } else {
+            console.error(`Error al cargar el estado de la máquina ${id_maquina}:`, response.status);
+            const imagenElement = document.getElementById(id_imagen);
+            if (imagenElement) imagenElement.src = '../static/img/stop.png'; // Imagen de error
+        }
+    } catch (error) {
+        console.error(`Error al cargar el estado de la máquina ${id_maquina}:`, error);
+        const imagenElement = document.getElementById(id_imagen);
+        if (imagenElement) imagenElement.src = '../static/img/stop.png'; // Imagen de error
+    }
+}
+
