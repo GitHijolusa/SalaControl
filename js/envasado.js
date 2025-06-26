@@ -24,7 +24,7 @@ function updateAllData() {
     cargarEstadoEnvasado(89);
     cargarEstadoEnvasado(88);
     cargarEstadoEnvasado(87);
-    console.log(cargarEstadoEnvasado(86));
+    cargarEstadoEnvasado(86);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -180,7 +180,7 @@ async function cargarEstadoEnvasado(id_maquina) {
                         const maq1 = document.getElementById('estado2_1_2');
                         maq1.checked = true;
                     }else{
-                        const maq1 = document.getElementById('estado2_1_1');
+                        const maq1 = document.getElementById('estado2_1_2');
                         maq1.checked = false;
                         maq1.parentElement.style.backgroundColor = '';
                     }
@@ -197,10 +197,10 @@ async function cargarEstadoEnvasado(id_maquina) {
                     break;
                 case 87:
                     if(data.descparo == '0' || data.descparo == ''){
-                        const maq1 = document.getElementById('estado2_1_2');
+                        const maq1 = document.getElementById('estado1_1_2');
                         maq1.checked = true;
                     }else{
-                        const maq1 = document.getElementById('estado2_1_1');
+                        const maq1 = document.getElementById('estado1_1_2');
                         maq1.checked = false;
                         maq1.parentElement.style.backgroundColor = '';
                     }
@@ -210,11 +210,40 @@ async function cargarEstadoEnvasado(id_maquina) {
                         const maq1 = document.getElementById('estado1_1_1');
                         maq1.checked = true;
                     }else{
-                        const maq1 = document.getElementById('estado1_1_2');
+                        const maq1 = document.getElementById('estado1_1_1');
                         maq1.checked = false;
                         maq1.parentElement.style.backgroundColor = '';
                     }
                     break;                  
+            }
+
+            if(estado3_1_1.checked == true && estado3_1_2.checked == true) {
+
+                const maq1 = document.getElementById('estado3_1');
+                maq1.checked = true;
+            
+            }else if(estado3_1_1.checked == true && estado3_1_2.checked == false || estado3_1_1.checked == false && estado3_1_2.checked == true){
+
+                const maq1 = document.getElementById('estado3_1');
+                maq1.checked = false;
+                maq1.parentElement.style.backgroundColor = 'yellow';
+            }
+
+            if(estado2_1_1.checked == true && estado2_1_2.checked == true) {
+
+                const maq1 = document.getElementById('estado2_1');
+                maq1.checked = true;
+            
+            }else if(estado2_1_1.checked == true && estado2_1_2.checked == false || estado2_1_1.checked == false && estado2_1_2.checked == true){
+
+                const maq1 = document.getElementById('estado2_1');
+                maq1.style.backgroundColor = 'yellow';
+            }
+            
+            if(estado1_1_1.checked == true && estado1_1_2.checked == true) {
+
+                const maq1 = document.getElementById('estado1_1');
+                maq1.checked = true;
             }
         }
     }catch (error) {

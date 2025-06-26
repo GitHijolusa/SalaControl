@@ -286,8 +286,19 @@ async function cargarEstadoEnvasado(id_maquina) {
                     }
                     break;                 
             }
+
+            if(estado7_1_1.checked == true && estado7_1_2.checked == true) {
+
+                const maq1 = document.getElementById('estado7_1');
+                maq1.checked = true;
+
+            }else if(estado7_1_1.checked == true && estado7_1_2.checked == false || estado7_1_1.checked == false && estado7_1_2.checked == true){
+                const maq1 = document.getElementById('estado7_1');
+                maq1.style.backgroundColor = 'yellow';
+            }
         }
     }catch (error) {
         console.error('Error al cargar el dato:', error);
     }
 }
+
