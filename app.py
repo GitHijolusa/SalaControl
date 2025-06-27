@@ -7,7 +7,7 @@ from flask_socketio import SocketIO, emit
 
 from sql_map import (
     conectar, get_expedition_data, get_download_data, get_param_maquina,
-    get_of_lavado, get_of_envasado, get_operarios
+    get_of_lavado, get_of_envasado, get_operarios, get_fabricaciones_envasado
 )
 
 app = Flask(__name__)
@@ -132,7 +132,17 @@ def obtener_info_puesto_envasado(id_maquina):
     if not data: return jsonify({'error': f'No se encontraron datos de envasado para la máquina con ID {id_maquina}'}), 404
     
     return jsonify(data)
+
+@app.route('/api/fabricaciones_envasado/<int:id_maquina>', methods=['GET'])
+def obtener_fabricaciones_envasado(id_maquina):
+
+    data, err_res, status_code = get_fabricaciones_envasado(id_maquina)
     
+    if err_res: return jsonify(err_res), status_code
+    if not data: return jsonify({'error': f'No se encontraron fabricaciones de envasado para la máquina con ID {id_maquina}'}), 404
+    
+    return jsonify(data)
+
 if __name__ == '__main__':
     socketio.start_background_task(target=send_update_event)
     socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True)

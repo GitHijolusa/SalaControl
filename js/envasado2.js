@@ -24,6 +24,10 @@ function updateAllData() {
     cargarEstadoEnvasado(94);
     cargarEstadoEnvasado(95);
     cargarEstadoEnvasado(96);
+    obtenerFabricacionesEnvasado(95, 'palets7');
+    obtenerFabricacionesEnvasado(94, 'palets6');
+    obtenerFabricacionesEnvasado(93, 'palets5');
+    obtenerFabricacionesEnvasado(92, 'palets4');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -236,7 +240,7 @@ async function cargarEstadoEnvasado(id_maquina) {
 
             switch (id_maquina) {
                 case 96:
-                    if(data.descparo == '0' || data.descparo == ''){
+                    if(data.descparo == '0' || data.descparo == '' || data.descparo == '--'){
                         const maq1 = document.getElementById('estado7_1_2');
                         maq1.checked = true;
                     }else{
@@ -246,7 +250,7 @@ async function cargarEstadoEnvasado(id_maquina) {
                     }
                     break;
                 case 95:
-                    if(data.descparo == '0' || data.descparo == ''){
+                    if(data.descparo == '0' || data.descparo == '' || data.descparo == '--'){
                         const maq1 = document.getElementById('estado7_1_1');
                         maq1.checked = true;
                     }else{
@@ -256,7 +260,7 @@ async function cargarEstadoEnvasado(id_maquina) {
                     }
                     break;
                 case 94:
-                    if(data.descparo == '0' || data.descparo == ''){
+                    if(data.descparo == '0' || data.descparo == '' || data.descparo == '--'){
                         const maq1 = document.getElementById('estado6_1');
                         maq1.checked = true;
                     }else{
@@ -266,7 +270,7 @@ async function cargarEstadoEnvasado(id_maquina) {
                     }
                     break;
                 case 93:
-                    if(data.descparo == '0' || data.descparo == ''){
+                    if(data.descparo == '0' || data.descparo == '' || data.descparo == '--'){
                         const maq1 = document.getElementById('estado5_1');
                         maq1.checked = true;
                     }else{
@@ -276,7 +280,7 @@ async function cargarEstadoEnvasado(id_maquina) {
                     }
                     break;
                 case 92:
-                    if(data.descparo == '0' || data.descparo == ''){
+                    if(data.descparo == '0' || data.descparo == '' || data.descparo == '--'){
                         const maq1 = document.getElementById('estado4_1');
                         maq1.checked = true;
                     }else{
@@ -299,6 +303,21 @@ async function cargarEstadoEnvasado(id_maquina) {
         }
     }catch (error) {
         console.error('Error al cargar el dato:', error);
+    }
+}
+
+async function obtenerFabricacionesEnvasado(id_maquina, id_fabricaciones) {
+    try {
+        const response = await fetch(`${backendUrl}/api/fabricaciones_envasado/${id_maquina}`);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(`Fabricaciones de la máquina ${id_maquina} cargadas:`, data);
+            document.getElementById(id_fabricaciones).value = data.fabricaciones;
+        } else {
+            console.error(`Error al cargar las fabricaciones de la máquina ${id_maquina}:`, response.status);
+        }
+    } catch (error) {
+        console.error(`Error al cargar las fabricaciones de la máquina ${id_maquina}:`, error);
     }
 }
 

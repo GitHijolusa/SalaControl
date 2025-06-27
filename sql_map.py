@@ -1,8 +1,8 @@
 import pyodbc
 from sql_querys import (
     GET_PARAM_MAQUINA, GET_INFO_DESC, GET_INFO_EXP,
-    GET_OF_ENVASADO, GET_OF_LAVADO, GET_OPERARIO
-)
+    GET_OF_ENVASADO, GET_OF_LAVADO, GET_OPERARIO, 
+    GET_FAB_ENVASADO)
 
 # Configuración de la conexión a la base de datos
 DATABASE_CONFIG = {
@@ -194,4 +194,15 @@ def get_operarios(id_maquina):
     
     return {
         'operarios': [row['operarios'] for row in data]
+    }, None, None
+
+def get_fabricaciones_envasado(id_maquina):
+    columns = ['fabricaciones']
+    data, err_res, status_code = execute_and_fetch_one(GET_FAB_ENVASADO, (id_maquina,), columns)
+
+    if err_res: return None, err_res, status_code
+    if not data: return None, None, None # No data
+
+    return {
+        'fabricaciones': data.get('fabricaciones')
     }, None, None

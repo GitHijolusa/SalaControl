@@ -161,8 +161,10 @@ body {
   color: black;
   background-color: transparent;
   text-align: center;
-  width: 40%;
+  width: 70%;
   box-sizing: border-box;
+  border: none;
+  font-weight: bold;
 }
 
 .data-overview textarea {

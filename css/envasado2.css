@@ -154,9 +154,11 @@ body {
 .data-overview input[type="text"] {
     color: black;
     background-color: transparent;
-    border: 1 black;
+    border: none;
     text-align: center;
-    width: 40%;
+    font-weight: bold;
+    text-align: center;
+    width: 65%;
     box-sizing: border-box;
 }
 
