@@ -3,10 +3,10 @@ function updateAllData() {
     cargarInfoDescarga(70, 'lote2', 'variedad2', 'agricultor2', 'proveedor2', 'matricula2');
     cargarInfoDescarga(71, 'lote3', 'variedad3', 'agricultor3', 'proveedor3', 'matricula3');
     cargarInfoDescarga(72, 'lote4', 'variedad4', 'agricultor4', 'proveedor4', 'matricula4');
-    linea4Active = cambiarEstadoMaquina(76, 'status-linea4');
-    linea3Active = cambiarEstadoMaquina(76, 'status-linea3');
-    linea2Active = cambiarEstadoMaquina(75, 'status-linea2');
-    linea1Active = cambiarEstadoMaquina(74, 'status-linea1');
+    linea4Active = cambiarEstadoMaquina(69, 'status-linea4');
+    linea3Active = cambiarEstadoMaquina(70, 'status-linea3');
+    linea2Active = cambiarEstadoMaquina(71, 'status-linea2');
+    linea1Active = cambiarEstadoMaquina(72, 'status-linea1');
     cargarOperario(69, 'op1');
     cargarOperario(70, 'op2');
     cargarOperario(71, 'op3');
@@ -51,36 +51,6 @@ async function cargarInfoDescarga(id_maquina, id_lote, id_variedad, id_agriculto
         document.getElementById(id_agricultor).value = 'Error';
         document.getElementById(id_proveedor).value = 'Error';
         document.getElementById(id_matricula).value = 'Error';
-    }
-}
-
-async function cambiarEstadoMaquina(id_maquina, id_status) {
-
-    try {
-        const response = await fetch(`${backendUrl}/api/maquina_activa/${id_maquina}`);
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-            console.log(`Estado de la máquina ${id_maquina} cargado`);
-
-            const statusCircle = document.getElementById(id_status);
-            if (statusCircle) {
-                if (data.activa) {
-                    statusCircle.style.backgroundColor = 'green';
-                } else {
-                    statusCircle.style.backgroundColor = 'red';
-                }
-            }
-        } else {
-            console.error(`Error al cargar el estado de la máquina ${id_maquina}:`, response.status);
-            const statusCircle = document.getElementById(id_status);
-            if (statusCircle) statusCircle.style.backgroundColor = 'red';
-        }
-    } catch (error) {
-        console.error(`Error al cargar el estado de la máquina ${id_maquina}:`, error);
-        const statusCircle = document.getElementById(id_status);
-        if (statusCircle) statusCircle.style.backgroundColor = 'red';
     }
 }
 

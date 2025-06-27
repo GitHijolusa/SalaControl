@@ -63,7 +63,7 @@ async function cambiarEstadoMaquina(id_maquina, id_status) {
 
             const statusCircle = document.getElementById(id_status);
             if (statusCircle) {
-                if (data.descparo == '0' || data.descparo == '') {
+                if (data.descparo == '0' || data.descparo == '' || data.descparo == '--') {
                     statusCircle.style.backgroundColor = '#00FF00';
                     console.log('activa')
                 } else if (data.descparo === "BOCADILLO") {
