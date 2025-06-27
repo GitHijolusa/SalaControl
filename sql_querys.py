@@ -95,3 +95,18 @@ GET_OF_ENVASADO = """SELECT
 #Consulta para obtener el operario asignado a cada maquina    
 GET_OPERARIO = """SELECT Desc_operario FROM prd_operario WHERE id_maquina = ?"""
 
+#Consulta para obtener las fabricaciones de envasado
+GET_FAB_ENVASADO = """
+                    SELECT
+                        count (*) fabricaciones
+                    FROM
+                        cfg_maquina cm
+                    JOIN
+                        prd_erp_in pei ON cm.Rt_Cod_of = pei.P1
+                    WHERE
+                        pei.P8 = 'TERMINADO'
+                        AND pei.P6 NOT IN ('PATATA RECUPERACION -45', 'PATATA RECUPERACIÓN', 'PATATA DESTRIO')
+                        AND CONVERT(DATE, pei.fecha_generacion ) = CONVERT(DATE, GETDATE())
+                        AND cm.Id_maquina = ?; 
+                    """
+
