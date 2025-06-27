@@ -183,6 +183,9 @@ async function cargarLavadora(id_maquina) {
 }
 
 async function cambiarImagenMaquina(id_maquina, id_imagen) {
+
+    const STATIC_BASE_URL = '/static/';
+
     try {
         const response = await fetch(`${backendUrl}/api/maquina_activa/${id_maquina}`);
         if (response.ok) {
@@ -190,9 +193,9 @@ async function cambiarImagenMaquina(id_maquina, id_imagen) {
             const imagenElement = document.getElementById(id_imagen);
             if (imagenElement) {
                 if (data.descparo === '0' || data.descparo === '' || data.descparo == '--') {
-                    imagenElement.src = "/images/cepilladora.png"; // Imagen para estado activo
+                    imagenElement.src = `${STATIC_BASE_URL}images/cepilladora.png` // Imagen para estado activo
                 } else {
-                    imagenElement.src = "/images/cepilladora_inactiva.png"; // Imagen para estado de paro
+                    imagenElement.src = `${STATIC_BASE_URL}images/cepilladora_inactiva.png` // Imagen para estado de paro
                 }
             }
         } else {

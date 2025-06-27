@@ -190,6 +190,9 @@ async function obtenerInfoLavado(id_maquina) {
 }
 
 async function cambiarImagenMaquina(id_maquina, id_imagen) {
+
+    const STATIC_BASE_URL = '/static/';
+
     try {
         const response = await fetch(`${backendUrl}/api/maquina_activa/${id_maquina}`);
         if (response.ok) {
@@ -197,9 +200,9 @@ async function cambiarImagenMaquina(id_maquina, id_imagen) {
             const imagenElement = document.getElementById(id_imagen);
             if (imagenElement) {
                 if (data.descparo === '0' || data.descparo === '' || data.descparo == '--') {
-                    imagenElement.src = "/images/calibrador.png"; // Imagen para estado activo
+                    imagenElement.src = `${STATIC_BASE_URL}images/calibrador.png`// Imagen para estado activo
                 } else {
-                    imagenElement.src = "/images/calibrador_inactiva.png"; // Imagen para estado de paro
+                    imagenElement.src = `${STATIC_BASE_URL}images/calibrador_inactiva.png`; // Imagen para estado de paro
                 }
             }
         } else {
@@ -213,4 +216,3 @@ async function cambiarImagenMaquina(id_maquina, id_imagen) {
         if (imagenElement) imagenElement.src = '../static/img/stop.png'; // Imagen de error
     }
 }
-

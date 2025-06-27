@@ -1,3 +1,4 @@
+import os
 import threading
 import time
 from flask import Flask, jsonify, render_template, request
@@ -10,7 +11,8 @@ from sql_map import (
     get_of_lavado, get_of_envasado, get_operarios, get_fabricaciones_envasado
 )
 
-app = Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
+app = Flask(__name__, template_folder=os.path.join(basedir, 'html'))
 CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:3000"}}) # Permite CORS para todas las rutas Flask y para el Socket.IO si la versión lo requiere.
 
 socketio = SocketIO(app, cors_allowed_origins="*") # Configura Socket.IO con CORS
@@ -31,6 +33,10 @@ def send_update_event():
         print("Enviando evento de actualización a todos los clientes...")
         # 'update_data_signal' es el nombre del evento que los clientes escucharán
         socketio.emit('update_data_signal', {'message': 'Es hora de actualizar los datos!'})
+        
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/lavado.html')
 def lavado_page():
@@ -146,3 +152,4 @@ def obtener_fabricaciones_envasado(id_maquina):
 if __name__ == '__main__':
     socketio.start_background_task(target=send_update_event)
     socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True)
+

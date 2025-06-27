@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona de Envasado</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="/css/envasado.css">
-    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/envasado.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/envasado.js" defer></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/envasado.js') }}" defer></script>
 </head>
 
 <body>
     <div class="header">
         <div class="logo-date">
-            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+            <img src="{{ url_for('static', filename='images/patatas_hijolusa_logo.jpg') }}" alt="Logo Patatas Hijolusa" class="logo">
         </div>
         <div class="date-time">
             <div id="current-date"></div>
@@ -43,7 +43,7 @@
                 <div class="status-circle" id="status-linea3"></div>
             </div>
             <div class="carretillero">
-                <img src="/images/persona.png" alt="envLinea1" style="max-height: 70px;">
+                <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea1" style="max-height: 70px;">
                 <textarea class="name-input large-input" rows="7" id="pesadora3" disabled></textarea>
             </div>
             <div class="tolvaOrigen">
@@ -52,7 +52,7 @@
             </div>
             <div class="machine-body">
                 <div class="param" style="position: relative; display: inline-block;">
-                    <img src="/images/envasado_3.PNG" alt="Imagen de la máquina">
+                    <img src="{{ url_for('static', filename='images/envasado_3.PNG') }}" alt="Imagen de la máquina">
                     <div
                         style="position: absolute; top: 220px; left: 17px; bottom: 0; background-color: transparent; ">
                         <div><label for="disp1" id="label_disp3">DISP:</label><input type="text" id="disp3" disabled></div>
@@ -80,13 +80,13 @@
                 </div>
                 <div class="data-overview">
                     <div style="position: relative; bottom: 140px; left: 120px; display: flex;">
-                        <img src="/images/robot.png" alt="envLinea3" style="max-height: 70px; max-width: 70px;">
+                        <img src="{{ url_for('static', filename='images/robot.png') }}" alt="envLinea3" style="max-height: 70px; max-width: 70px;">
                         <div>PALETS: <input type="text" id="palets3" disabled></input></div>
                     </div>
                     <div style="position: relative; right: 90px; display: flex;">
-                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         <textarea class="name-input large-input" rows="8"  id="env3" disabled></textarea>
-                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         <textarea class="name-input large-input" rows="8"  id="env3_1" disabled></textarea>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="status-circle" id="status-linea2"></div>
             </div>
             <div class="carretillero">
-                <img src="/images/persona.png" alt="envLinea2" style="max-height: 70px;">
+                <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea2" style="max-height: 70px;">
                 <textarea class="name-input large-input" rows="7" id="pesadora2" disabled></textarea>
             </div>
             <div class="tolvaOrigen">
@@ -108,7 +108,7 @@
             </div>
             <div class="machine-body">
                 <div class="param" style="position: relative; display: inline-block;">
-                    <img src="/images/envasado_2.PNG" alt="Imagen de la máquina">
+                    <img src="{{ url_for('static', filename='images/envasado_2.PNG') }}" alt="Imagen de la máquina">
                     <div
                         style="position: absolute; top: 220px; left: 17px; bottom: 0; background-color: transparent;">
                         <div><label for="disp2" id="label_disp2">DISP:</label><input type="text" id="disp2" disabled></div>
@@ -136,13 +136,13 @@
                 </div>
                 <div class="data-overview">
                     <div style="position: relative; bottom: 140px; left: 120px; display: flex;">
-                        <img src="/images/robot.png" alt="envLinea3" style="max-height: 70px; max-width: 70px;">
+                        <img src="{{ url_for('static', filename='images/robot.png') }}" alt="envLinea3" style="max-height: 70px; max-width: 70px;">
                         <div>PALETS: <input type="text" id="palets2" disabled></input></div>
                     </div>
                     <div style="position: relative; right: 90px; display: flex;">
-                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         <textarea class="name-input large-input" rows="8"  id="env2" disabled></textarea>
-                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         <textarea class="name-input large-input" rows="8"  id="env2_1" disabled></textarea>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                 <div class="status-circle" id="status-linea1"></div>
             </div>
             <div class="carretillero">
-                <img src="/images/persona.png" alt="envLinea3" style="max-height: 70px;">
+                <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 70px;">
                 <textarea class="name-input large-input" rows="7" id="pesadora1" disabled></textarea>
             </div>
             <div class="tolvaOrigen">
@@ -164,7 +164,7 @@
             </div>
             <div class="machine-body">
                 <div class="param" style="position: relative; display: inline-block;">
-                    <img src="/images/envasado_1.png" alt="Imagen de la máquina">
+                    <img src="{{ url_for('static', filename='images/envasado_1.png') }}" alt="Imagen de la máquina">
                     <div
                         style="position: absolute; top: 220px; left: 17px; bottom: 0; background-color: transparent;">
                         <div><label for="disp3" id="label_disp1">DISP:</label><input type="text" id="disp1" disabled></div>
@@ -193,26 +193,26 @@
                     <div>
                         <div style="position: absolute; top: 65%; left: 25%; bottom: 0; background-color: transparent;">
                             <div>TRASPALETEROS</div>
-                            <textarea class="traspaleteros" id="traspaleteros" rows="7" cols="30" disabled></textarea>
-                            <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                            <textarea class="traspaleteros" id="traspaleteros" rows="7" cols="30" disabled></textarea> 
+                            <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         </div>
                     </div>
                     <div>
                         <div style="position: absolute; top:65%; left: 58%; bottom: 0; background-color: transparent;">
                             <div>ABASTECIMIENTO</div>
-                            <textarea class="abastecimiento" id="abastecimiento" rows="7" cols="30" disabled></textarea>
-                            <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                            <textarea class="abastecimiento" id="abastecimiento" rows="7" cols="30" disabled></textarea> 
+                            <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         </div>
                     </div>
                 <div class="data-overview">
                     <div style="position: relative; bottom: 140px; left: 120px; display: flex;">
-                        <img src="/images/robot.png" alt="envLinea3" style="max-height: 70px; max-width: 70px;">
+                        <img src="{{ url_for('static', filename='images/robot.png') }}" alt="envLinea3" style="max-height: 70px; max-width: 70px;">
                         <div>PALETS: <input type="text" id="palets1" disabled></input></div>
                     </div>
                     <div style="position: relative; right: 90px; display: flex;">
-                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         <textarea class="name-input large-input" rows="8"  id="env1" disabled></textarea>
-                        <img src="/images/persona.png" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
+                        <img src="{{ url_for('static', filename='images/persona.png') }}" alt="envLinea3" style="max-height: 40px; max-width: 40px;">
                         <textarea class="name-input large-input" rows="8" id="env1_1" disabled></textarea>
                     </div>
                 </div>

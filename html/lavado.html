@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona de Lavado - Patatas Hijolusa</title>
-    <link rel="stylesheet" href="/css/lavado.css">
-    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lavado.css') }}">
+ <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/lavado.js"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lavado.js') }}"></script>
 </head>
 <body>
     <div class="header">
         <div>
-            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+            <img src="{{ url_for('static', filename='images/patatas_hijolusa_logo.jpg') }}" alt="Logo Patatas Hijolusa" class="logo">
         </div>
         <div class="date-time">
             <div id="current-date"></div>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="calibrador-wrapper"> <div class="calibrador">
-                    <img id="calibrador3" src="/images/calibrador.png" alt="Calibrador 3">
+                <img id="calibrador3" src="{{ url_for('static', filename='images/calibrador.png') }}" alt="Calibrador 3">
                 </div>
 
                 <div class="linea-lavado" id="linea-lavado-data-3">
@@ -75,7 +75,7 @@
                     <div>MALAS: <input type="text" class="station-input" id="malas3" disabled></div>
                 </div>
                 <div class="carretillero">
-                    <img src="/images/persona.png" alt="Carretillero Linea 3">
+                    <img src="{{ url_for('static', filename='images/persona.png') }}" alt="Carretillero Linea 3">
                     <textarea class="name-input large-input" id="carr3" rows="5" disabled></textarea>
                 </div>
             </div>
@@ -94,7 +94,7 @@
 
             <div class="calibrador-wrapper">
                 <div class="calibrador">
-                    <img id="calibrador2" src="/images/calibrador.png" alt="Calibrador 2">
+                <img id="calibrador2" src="{{ url_for('static', filename='images/calibrador.png') }}" alt="Calibrador 2">
                 </div>
 
                 <div class="linea-lavado" id="linea-lavado-data-2"> <div>BIG BAGS A LAVAR: <input type="text" id="big_bags_lavar_2" disabled></div>
@@ -128,7 +128,7 @@
                     <div>MALAS: <input type="text" class="station-input" id="malas2" disabled></div>
                 </div>
                 <div class="carretillero">
-                    <img src="/images/persona.png" alt="Carretillero Linea 2">
+                    <img src="{{ url_for('static', filename='images/persona.png') }}" alt="Carretillero Linea 2">
                     <textarea class="name-input large-input" id="carr2" rows="5" disabled></textarea>
                 </div>
             </div>
@@ -147,7 +147,7 @@
 
             <div class="calibrador-wrapper">
                 <div class="calibrador">
-                    <img id="calibrador1" src="/images/calibrador.png" alt="Calibrador 1">
+                <img id="calibrador1" src="{{ url_for('static', filename='images/calibrador.png') }}" alt="Calibrador 1">
                 </div>
 
                 <div class="linea-lavado" id="linea-lavado-data-1">
@@ -177,7 +177,7 @@
                     <div>MALAS: <input type="text" class="station-input" id="malas1" disabled></div>
                 </div>
                 <div class="carretillero">
-                    <img src="/images/persona.png" alt="Carretillero Linea 1">
+                <img src="{{ url_for('static', filename='images/persona.png') }}" alt="Carretillero Linea 1">
                     <textarea class="name-input large-input" id="carr1" rows="5" disabled></textarea>
                 </div>
             </div>

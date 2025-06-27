@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona de Cepillado</title>
-    <link rel="stylesheet" href="/css/cepillado.css">
-    <link rel="icon" href="/images/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cepillado.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/cepillado.js"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cepillado.js') }}"></script>
 </head>
 <body>
     <div class="header">
         <div>
-            <img src="/images/patatas_hijolusa_logo.jpg" alt="Logo Patatas Hijolusa" class="logo">
+            <img src="{{ url_for('static', filename='images/patatas_hijolusa_logo.jpg') }}" alt="Logo Patatas Hijolusa" class="logo">
         </div>
         <div class="date-time">
             <div id="current-date"></div>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="calibrador-wrapper"> <div class="calibrador">
-                    <img id="calibrador3" src="/images/cepilladora.png">
+                    <img id="calibrador3" src="{{ url_for('static', filename='images/cepilladora.png') }}">
                 </div>
 
                 <div class="linea-lavado" id="linea-lavado-data-3">
@@ -57,7 +57,7 @@
                 </div>
                 
                 <div class="produccion-buenas-malas" id="produccion-extras-3">
-                    <img src="/images/persona.png" alt="Carretillero Linea 3" height="70px">
+                    <img src="{{ url_for('static', filename='images/persona.png') }}" alt="Carretillero Linea 3" height="70px">
                     <textarea class="name-input large-input" rows="5" id="carr3" disabled></textarea>
                 </div>
                 <div>
@@ -76,7 +76,7 @@
 
             <div class="calibrador-wrapper">
                 <div class="calibrador">
-                    <img id="calibrador2" src="/images/cepilladora.png">
+                    <img id="calibrador2" src="{{ url_for('static', filename='images/cepilladora.png') }}">
                 </div>
 
                 <div class="linea-lavado" id="linea-lavado-data-2">
@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="produccion-buenas-malas" id="produccion-extras-2">
-                    <img src="/images/persona.png" alt="Carretillero Linea 3" height="70px">
+                    <img src="{{ url_for('static', filename='images/persona.png') }}" alt="Carretillero Linea 3" height="70px">
                     <textarea class="name-input large-input" rows="5" id="carr2" disabled></textarea>
                 </div>
 
@@ -109,7 +109,7 @@
 
             <div class="calibrador-wrapper">
                 <div class="calibrador">
-                    <img id="calibrador1" src="/images/cepilladora.png" alt="Calibrador 1">
+                    <img id="calibrador1" src="{{ url_for('static', filename='images/cepilladora.png') }}" alt="Calibrador 1">
                 </div>
 
                 <div class="linea-lavado" id="linea-lavado-data-1">
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="produccion-buenas-malas" id="produccion-extras-1">
-                    <img src="/images/persona.png" alt="Carretillero Linea 1" height="70px">
+                    <img src="{{ url_for('static', filename='images/persona.png') }}" alt="Carretillero Linea 1" height="70px">
                     <textarea class="name-input large-input" rows="5" id="carr1" disabled></textarea>
                 </div>
                 <div>
